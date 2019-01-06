@@ -2,7 +2,7 @@
 using namespace std;
 int main()
 {
-	int i,j,n,count=0;
+	int i,j,n;
 	cout<<"enter range to print prime no  ";
 	cin>>n;
 	int a[n];
@@ -14,16 +14,16 @@ int main()
 	}
 	//make all even number except 2 as non-prime
 	for(i=4;i<=n;i+=2)
-    {
-        a[i]=0;
-    }
-    i=3;
-    //multiples of all prime number from 3 make as non-prime
-    //till n
+	{
+		a[i]=0;
+	}
+	i=3;
+	//multiples of all prime number from 3 make as non-prime
+	//till n
 	for(i=3;i*i<=n;i+=2)
 	{
-        //multiples of non-prime number already marked as non-prime
-        //by it's prime factors
+	//multiples of non-prime number already marked as non-prime
+	//by it's prime factors
 		if(a[i]==0)
 		{
 			continue;
@@ -34,16 +34,16 @@ int main()
 		while(i*j<=n)
 		{
 			a[i*j]=0;
-            j=j+2;         //increasing rate 2 because even number already marked
+	    j=j+2;         //increasing rate 2 because even number already marked
 		}
 	}
 	cout<<"prime number till "<<n<<" are :\n";
 	for(i=2;i<=n;i++)
 	{
 		if(a[i]!=0)
-        {
-            cout<<i<<" ";
-        }
+	{
+	    cout<<i<<" ";
+	}
 	}
 	cout<<"\n";
 }
