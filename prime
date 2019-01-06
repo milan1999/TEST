@@ -1,0 +1,49 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int i,j,n,count=0;
+	cout<<"enter range to print prime no  ";
+	cin>>n;
+	int a[n];
+	//create a array named 'a' to store weather i is prime or not
+	//initially make all number as prime
+	for(i=2;i<=n;i++)
+	{
+		a[i]=1;
+	}
+	//make all even number except 2 as non-prime
+	for(i=4;i<=n;i+=2)
+    {
+        a[i]=0;
+    }
+    i=3;
+    //multiples of all prime number from 3 make as non-prime
+    //till n
+	for(i=3;i*i<=n;i+=2)
+	{
+        //multiples of non-prime number already marked as non-prime
+        //by it's prime factors
+		if(a[i]==0)
+		{
+			continue;
+		}
+		//multiples less than 'i' already marked as non-prime
+		//so starts from i-th multiple till end
+		j=i;
+		while(i*j<=n)
+		{
+			a[i*j]=0;
+            j=j+2;         //increasing rate 2 because even number already marked
+		}
+	}
+	cout<<"prime number till "<<n<<" are :\n";
+	for(i=2;i<=n;i++)
+	{
+		if(a[i]!=0)
+        {
+            cout<<i<<" ";
+        }
+	}
+	cout<<"\n";
+}
